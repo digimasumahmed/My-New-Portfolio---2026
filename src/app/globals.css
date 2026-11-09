@@ -1,15 +1,57 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #252525;
+  --ink: #1e1e1e;
+  --panel: #ffffff;
+  --strong: #1e1e1e;
+  --strong-fg: #f7f6f2;
+  --cream: #f7f6f2;
+  --muted: rgba(30, 30, 30, 0.5);
+  --overlay: rgba(0, 0, 0, 0.5);
+  --soft: rgba(0, 0, 0, 0.05);
   --hero-orange: #ff6228;
   --hero-orange-text: #f36b32;
+  --accent: #ff6228;
+  --accent-bright: #ff7340;
+  --accent-text: #f36b32;
+}
+
+.dark {
+  --background: #111111;
+  --foreground: #f2f2f2;
+  --ink: #e8e8e8;
+  --panel: #1a1a1a;
+  --strong: #f2f2f2;
+  --strong-fg: #121212;
+  --cream: #f7f6f2;
+  --muted: rgba(242, 242, 242, 0.55);
+  --overlay: rgba(0, 0, 0, 0.65);
+  --soft: rgba(255, 255, 255, 0.06);
+  --hero-orange: #ff7340;
+  --hero-orange-text: #ff8a5c;
+  --accent: #ff7340;
+  --accent-bright: #ff8a5c;
+  --accent-text: #ff8a5c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-strong: var(--strong);
+  --color-strong-fg: var(--strong-fg);
+  --color-cream: var(--cream);
+  --color-muted: var(--muted);
+  --color-overlay: var(--overlay);
+  --color-soft: var(--soft);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-text: var(--accent-text);
   --font-sans: var(--font-gugi);
   --font-display: var(--font-vina-sans);
   --font-anton: var(--font-anton);
@@ -24,6 +66,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-gugi), ui-sans-serif, system-ui, sans-serif;
   overflow-x: clip;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 
 html.has-custom-cursor,
@@ -88,5 +133,9 @@ html.has-custom-cursor * {
   html.has-custom-cursor,
   html.has-custom-cursor * {
     cursor: auto !important;
+  }
+
+  body {
+    transition: none;
   }
 }

@@ -74,7 +74,7 @@ function ProjectCard({
       id={project.id}
       data-project-card
       data-filter={project.filter}
-      className="group flex min-w-0 flex-col gap-4 border border-solid border-[#1e1e1e] bg-white p-2.5"
+      className="group flex min-w-0 flex-col gap-4 border border-solid border-ink bg-background p-2.5"
     >
       <div
         data-card-media
@@ -103,7 +103,7 @@ function ProjectCard({
           <div className="flex flex-col gap-2">
             <p
               data-card-category
-              className="font-[family-name:var(--font-gugi)] text-[15px] leading-normal text-[#1e1e1e] sm:text-[18px]"
+              className="font-[family-name:var(--font-gugi)] text-[15px] leading-normal text-ink sm:text-[18px]"
             >
               {project.category}
             </p>
@@ -111,14 +111,14 @@ function ProjectCard({
               <div className="overflow-hidden">
                 <h2
                   data-card-title
-                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,48px)] leading-none text-[#ff7340] transition-transform duration-300 group-hover:-translate-y-0.5"
+                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,48px)] leading-none text-accent-bright transition-transform duration-300 group-hover:-translate-y-0.5"
                 >
                   {project.title}
                 </h2>
               </div>
               <p
                 data-card-desc
-                className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-pretty text-[#1e1e1e] sm:text-[16px] sm:leading-7"
+                className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-pretty text-ink sm:text-[16px] sm:leading-7"
               >
                 {project.description}
               </p>
@@ -127,7 +127,7 @@ function ProjectCard({
 
           <div
             data-card-focus
-            className="flex flex-col gap-1 font-[family-name:var(--font-gugi)] text-[#1e1e1e]"
+            className="flex flex-col gap-1 font-[family-name:var(--font-gugi)] text-ink"
           >
             <p className="text-[13px] leading-normal sm:text-[14px]">
               DESIGN FOCUS
@@ -147,7 +147,7 @@ function ProjectCard({
           <Magnetic className="min-w-0 flex-1">
             <a
               href={project.caseStudyHref}
-              className="group/btn flex w-full items-center justify-center gap-2 bg-[#ff7340] px-3 py-2.5 text-[#f7f6f2] transition-[background-color,color,transform] duration-300 hover:bg-[#e86635] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1e1e1e] sm:gap-2.5 sm:px-4"
+              className="group/btn flex w-full items-center justify-center gap-2 bg-accent-bright px-3 py-2.5 text-cream transition-[background-color,color,transform] duration-300 hover:bg-[#e86635] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink sm:gap-2.5 sm:px-4"
             >
               <span className="text-center font-[family-name:var(--font-vina-sans)] text-[15px] leading-none transition-transform duration-300 group-hover/btn:translate-x-0.5 sm:text-[18px] lg:text-[20px]">
                 VIEW CASE STUDY
@@ -165,9 +165,9 @@ function ProjectCard({
           <Magnetic className="min-w-0 flex-1">
             <a
               href={project.liveHref}
-              className="group/btn flex w-full items-center justify-center gap-2 bg-[#1e1e1e] px-3 py-2.5 transition-[background-color,color] duration-300 hover:bg-[#2c2c2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff7340] sm:gap-2.5 sm:px-4"
+              className="group/btn flex w-full items-center justify-center gap-2 bg-strong px-3 py-2.5 transition-[background-color,color] duration-300 hover:bg-[#2c2c2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff7340] sm:gap-2.5 sm:px-4"
             >
-              <span className="text-center font-[family-name:var(--font-vina-sans)] text-[15px] leading-none text-[#ff7340] transition-transform duration-300 group-hover/btn:translate-x-0.5 sm:text-[18px] lg:text-[20px]">
+              <span className="text-center font-[family-name:var(--font-vina-sans)] text-[15px] leading-none text-accent-bright transition-transform duration-300 group-hover/btn:translate-x-0.5 sm:text-[18px] lg:text-[20px]">
                 Live Website
               </span>
               <span className="flex size-5 shrink-0 items-center justify-center overflow-hidden sm:size-6">
@@ -594,7 +594,7 @@ export function ProjectsPage() {
   return (
     <div ref={pageRef} className="relative">
       <SiteHeader />
-      <main className="flex-1 bg-white">
+      <main className="flex-1 bg-background">
         <section
           className="mx-auto w-full max-w-[1920px] px-4 pt-8 pb-4 sm:px-6 sm:pt-12 md:px-10 md:pt-[100px] md:pb-6"
           aria-label="Projects"
@@ -604,14 +604,14 @@ export function ProjectsPage() {
               <div className="w-full overflow-hidden py-2 sm:py-3">
                 <h1
                   data-projects-title
-                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(56px,12vw,200px)] leading-[0.9] text-[#ff7340]"
+                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(56px,12vw,200px)] leading-[0.9] text-accent-bright"
                 >
                   PROJECTS.
                 </h1>
               </div>
               <p
                 data-projects-subtitle
-                className="max-w-[40rem] px-2 font-[family-name:var(--font-gugi)] text-[clamp(15px,2.1vw,24px)] leading-snug text-pretty text-[#1e1e1e] sm:max-w-4xl sm:leading-8"
+                className="max-w-[40rem] px-2 font-[family-name:var(--font-gugi)] text-[clamp(15px,2.1vw,24px)] leading-snug text-pretty text-ink sm:max-w-4xl sm:leading-8"
               >
                 A curated selection of products, systems, and digital
                 experiences.
@@ -620,7 +620,7 @@ export function ProjectsPage() {
 
             <div
               data-stats-panel
-              className="flex w-full flex-col gap-5 border border-solid border-[#1e1e1e] p-3 sm:gap-6 sm:p-5"
+              className="flex w-full flex-col gap-5 border border-solid border-ink p-3 sm:gap-6 sm:p-5"
             >
               <div className="grid grid-cols-3 items-start justify-between gap-2 sm:items-center sm:gap-6">
                 {PROJECT_STATS.map((stat, index) => (
@@ -628,14 +628,14 @@ export function ProjectsPage() {
                     key={stat.label}
                     className="flex min-w-0 flex-col items-center gap-1 text-center sm:gap-2"
                   >
-                    <p className="font-[family-name:var(--font-gugi)] text-[11px] leading-tight text-[#1e1e1e] sm:text-[16px] sm:leading-8 md:text-[20px]">
+                    <p className="font-[family-name:var(--font-gugi)] text-[11px] leading-tight text-ink sm:text-[16px] sm:leading-8 md:text-[20px]">
                       {stat.label}
                     </p>
                     <p
                       data-stat-value
                       data-target={stat.value}
                       className={`font-[family-name:var(--font-anton)] text-[clamp(36px,7vw,80px)] leading-none sm:leading-[1.1] ${
-                        stat.accent ? "text-[#ff7340]" : "text-[#1e1e1e]"
+                        stat.accent ? "text-accent-bright" : "text-ink"
                       }`}
                     >
                       {statDisplays[index] ?? "00"}
@@ -661,8 +661,8 @@ export function ProjectsPage() {
                       onClick={() => applyFilter(filter)}
                       className={`group flex min-w-0 items-center justify-between gap-2 p-3 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff7340] sm:gap-3 sm:p-4 ${
                         active
-                          ? "bg-[#ff7340] text-white"
-                          : "border border-solid border-[#1e1e1e] bg-white text-[#1e1e1e] hover:bg-black/[0.04]"
+                          ? "bg-accent-bright text-white"
+                          : "border border-solid border-ink bg-background text-ink hover:bg-black/[0.04]"
                       }`}
                     >
                       <span className="min-w-0 truncate text-left font-[family-name:var(--font-vina-sans)] text-[clamp(16px,2vw,40px)] leading-none">
@@ -675,7 +675,7 @@ export function ProjectsPage() {
               </div>
             </div>
 
-            <div className="border border-solid border-[#1e1e1e] p-3 sm:p-5">
+            <div className="border border-solid border-ink p-3 sm:p-5">
               <div
                 ref={gridRef}
                 className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
@@ -691,7 +691,7 @@ export function ProjectsPage() {
                 ))}
               </div>
               {visibleCount === 0 ? (
-                <p className="py-16 text-center font-[family-name:var(--font-gugi)] text-[16px] text-[#1e1e1e]">
+                <p className="py-16 text-center font-[family-name:var(--font-gugi)] text-[16px] text-ink">
                   No projects in this category yet.
                 </p>
               ) : null}
@@ -705,7 +705,7 @@ export function ProjectsPage() {
       <div
         ref={indicatorRef}
         aria-hidden
-        className="pointer-events-none fixed top-0 left-0 z-40 hidden size-[88px] items-center justify-center rounded-full bg-[#ff7340] text-center font-[family-name:var(--font-vina-sans)] text-[13px] leading-tight text-[#f7f6f2] md:flex"
+        className="pointer-events-none fixed top-0 left-0 z-40 hidden size-[88px] items-center justify-center rounded-full bg-accent-bright text-center font-[family-name:var(--font-vina-sans)] text-[13px] leading-tight text-cream md:flex"
       >
         VIEW
         <br />

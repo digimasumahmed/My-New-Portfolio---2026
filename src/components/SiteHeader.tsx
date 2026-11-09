@@ -4,13 +4,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { useMenu } from "@/components/providers/MenuProvider";
+import { useTheme } from "@/components/providers/ThemeProvider";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 type SiteHeaderProps = {
+  /** Force bar style. Defaults to matching the active site theme. */
   variant?: "dark" | "light";
 };
 
-export function SiteHeader({ variant = "dark" }: SiteHeaderProps) {
-  const dark = variant === "dark";
+export function SiteHeader({ variant }: SiteHeaderProps) {
+  const { theme } = useTheme();
+  const barDark = (variant ?? theme) === "dark";
   const { openMenu, isOpen } = useMenu();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -59,15 +63,15 @@ export function SiteHeader({ variant = "dark" }: SiteHeaderProps) {
         data-site-header
         className={`fixed top-0 right-0 left-0 z-50 w-full transition-transform duration-400 ease-out ${
           hidden && !isOpen ? "-translate-y-full" : "translate-y-0"
-        } ${scrolled ? "bg-white/95 backdrop-blur-sm" : "bg-white"}`}
+        } ${scrolled ? "bg-background/95 backdrop-blur-sm" : "bg-background"}`}
       >
         <div className="mx-auto w-full max-w-[1920px] px-4 pt-4 pb-0 sm:px-5 sm:pt-5">
           <div
             data-header-bar
-            className={`flex items-center justify-between p-4 sm:p-5 ${
-              dark
-                ? "bg-[#1e1e1e]"
-                : "border border-solid border-[#1e1e1e] bg-white"
+            className={`flex items-center justify-between gap-3 p-4 sm:p-5 transition-colors duration-300 ${
+              barDark
+                ? "bg-[#1e1e1e] text-white"
+                : "border border-solid border-ink bg-panel text-ink"
             }`}
           >
             <Link
@@ -84,30 +88,33 @@ export function SiteHeader({ variant = "dark" }: SiteHeaderProps) {
               />
             </Link>
 
-            <button
-              type="button"
-              data-header-menu
-              onClick={openMenu}
-              className={`flex items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5 ${
-                dark ? "text-white" : "text-[#1e1e1e]"
-              }`}
-              aria-label="Open menu"
-            >
-              <span className="flex w-10 flex-col gap-1.5 p-1 sm:w-[60px] sm:gap-2 sm:p-1">
-                <span
-                  className={`h-1.5 w-full sm:h-2 ${dark ? "bg-white" : "bg-[#1e1e1e]"}`}
-                />
-                <span
-                  className={`h-1.5 w-full sm:h-2 ${dark ? "bg-white" : "bg-[#1e1e1e]"}`}
-                />
-                <span
-                  className={`h-1.5 w-full sm:h-2 ${dark ? "bg-white" : "bg-[#1e1e1e]"}`}
-                />
-              </span>
-              <span className="font-[family-name:var(--font-vina-sans)] text-[28px] leading-none sm:text-[40px]">
-                Menu
-              </span>
-            </button>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <ThemeToggle inverted={barDark} />
+              <button
+                type="button"
+                data-header-menu
+                onClick={openMenu}
+                className={`flex items-center gap-2 transition-transform duration-300 hover:-translate-y-0.5 ${
+                  barDark ? "text-white" : "text-ink"
+                }`}
+                aria-label="Open menu"
+              >
+                <span className="flex w-10 flex-col gap-1.5 p-1 sm:w-[60px] sm:gap-2 sm:p-1">
+                  <span
+                    className={`h-1.5 w-full sm:h-2 ${barDark ? "bg-white" : "bg-ink"}`}
+                  />
+                  <span
+                    className={`h-1.5 w-full sm:h-2 ${barDark ? "bg-white" : "bg-ink"}`}
+                  />
+                  <span
+                    className={`h-1.5 w-full sm:h-2 ${barDark ? "bg-white" : "bg-ink"}`}
+                  />
+                </span>
+                <span className="font-[family-name:var(--font-vina-sans)] text-[28px] leading-none sm:text-[40px]">
+                  Menu
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </header>

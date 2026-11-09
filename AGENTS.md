@@ -14,10 +14,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Prefer the user's provided Figma/SVG assets; do not generate replacement artwork or invent missing portraits—report missing assets instead.
 - Motion work must preserve layout, typography, colors, spacing, and composition; avoid generic fade-up-everywhere patterns.
 - Prefer inline SVG or React SVG components when internal SVG parts need independent animation (not plain `img`).
-- Content should stay visible by default; entrance animations must not leave sections blank or unreadable on first paint.
+- Content should stay visible by default; entrance animations must not leave sections blank or unreadable on first paint, and the header must not appear alone before the main hero/content.
 - Keep the site fully responsive across desktop, tablet, and mobile.
 - Header should be sticky: hide on scroll down, show on scroll up.
-- Navigation menu should be full-screen with open/close animation matching Figma.
+- Navigation menu should stay full-screen with open/close animation matching Figma; do not switch to half-screen or side-panel menu layouts.
+- Full-screen menu should mount only when opened via the menu control, not during the initial page load.
+- On small screens, prefer scaling down full-screen menu typography and spacing to fit rather than forcing the menu body to scroll.
 - When interactions or animations misbehave, fix the underlying logic before stacking more motion on top.
 - Do not animate the same DOM element with both GSAP and Motion at once.
 
@@ -31,4 +33,5 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - An earlier notebook/zipper scroll experiment was discarded in favor of the current Figma-based hero; do not revive that approach unless asked.
 - Dedicated `/contact` route exists; footer “START A PROJECT” should link there (arrow beside title per Figma), not a bare `mailto`.
 - Footer social links use the `digimasumahmed` handle on Facebook, Instagram, LinkedIn, GitHub, and Dribbble.
-- Selected Projects pins with ScrollTrigger on desktop (`lg+`); below that breakpoint, projects switch via letter taps without scroll pinning.
+- Selected Projects pins with ScrollTrigger on desktop (`lg+`); below that breakpoint, projects switch via letter taps without scroll pinning; project meta/preview must stay fully readable on laptop and smaller widths without clipping.
+- GitHub remote for this repo is `digimasumahmed/My-New-Portfolio---2026`.

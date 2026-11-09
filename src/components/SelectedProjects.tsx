@@ -353,30 +353,30 @@ export function SelectedProjects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative w-full bg-white"
+      className="relative w-full bg-background"
       aria-label="Selected projects"
     >
       <div
         ref={pinRef}
         className="mx-auto flex w-full max-w-[1920px] flex-col justify-center px-4 py-10 sm:px-6 sm:py-12 md:px-10 lg:min-h-[100svh] lg:py-8"
       >
-        <div className="flex max-h-none flex-col gap-5 border border-solid border-[#1e1e1e] p-3 sm:gap-6 sm:p-4 lg:max-h-[min(920px,92svh)] lg:flex-row lg:items-stretch lg:gap-8 lg:overflow-hidden xl:gap-12">
+        <div className="flex max-h-none flex-col gap-5 border border-solid border-ink p-3 sm:gap-6 sm:p-4 lg:max-h-[min(920px,92svh)] lg:flex-row lg:items-stretch lg:gap-8 lg:overflow-hidden xl:gap-12">
           {/* Left column */}
           <div className="flex min-w-0 flex-1 flex-col justify-between gap-5 lg:max-w-[46%] lg:gap-6">
             <div className="flex flex-col gap-5 lg:gap-6">
               <div className="flex flex-col gap-2 sm:gap-3">
                 <h2
                   data-projects-heading
-                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(36px,6.5vw,80px)] leading-[1.05] text-[#1e1e1e]"
+                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(36px,6.5vw,80px)] leading-[1.05] text-ink"
                 >
                   <span className="inline-block overflow-hidden align-bottom">
                     <span className="block">SELECTED</span>
                   </span>{" "}
-                  <span className="inline-block overflow-hidden align-bottom text-[#ff6228]">
+                  <span className="inline-block overflow-hidden align-bottom text-accent">
                     <span className="block">PROJECTS.</span>
                   </span>
                 </h2>
-                <p className="max-w-xl font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-[#1e1e1e] sm:text-[17px] sm:leading-7">
+                <p className="max-w-xl font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-ink sm:text-[17px] sm:leading-7">
                   A curated selection of products, systems, and digital
                   experiences.
                 </p>
@@ -388,13 +388,13 @@ export function SelectedProjects() {
                     key={stat.label}
                     className="flex min-w-0 flex-col items-start gap-0.5 sm:w-[150px] sm:max-w-[33%] sm:items-center sm:gap-1"
                   >
-                    <p className="w-full font-[family-name:var(--font-gugi)] text-[10px] leading-tight text-[#1e1e1e] sm:text-[clamp(11px,0.9vw,16px)]">
+                    <p className="w-full font-[family-name:var(--font-gugi)] text-[10px] leading-tight text-ink sm:text-[clamp(11px,0.9vw,16px)]">
                       {stat.label}
                     </p>
                     <p
                       data-stat-value={stat.value}
                       className={`font-[family-name:var(--font-anton)] text-[clamp(32px,6vw,64px)] leading-[1.05] whitespace-nowrap ${
-                        stat.accent ? "text-[#ff6228]" : "text-[#1e1e1e]"
+                        stat.accent ? "text-accent" : "text-ink"
                       }`}
                     >
                       {stat.display}
@@ -411,7 +411,7 @@ export function SelectedProjects() {
                 <span
                   ref={highlightRef}
                   aria-hidden
-                  className="pointer-events-none absolute top-0 right-0 left-0 z-[1] bg-[#ff6228] will-change-transform"
+                  className="pointer-events-none absolute top-0 right-0 left-0 z-[1] bg-accent will-change-transform"
                   style={{ height: 0 }}
                 />
                 {SHOWCASE_PROJECTS.map((project, index) => {
@@ -429,14 +429,14 @@ export function SelectedProjects() {
                       {index === 0 ? (
                         <span
                           aria-hidden
-                          className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-[#1e1e1e] transition-opacity duration-150 ${
+                          className={`pointer-events-none absolute inset-x-0 top-0 h-px bg-strong transition-opacity duration-150 ${
                             isVisualActive ? "opacity-0" : "opacity-100"
                           }`}
                         />
                       ) : null}
                       <span
                         aria-hidden
-                        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[#1e1e1e] transition-opacity duration-150 ${
+                        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-strong transition-opacity duration-150 ${
                           hairlineHidden(index) ? "opacity-0" : "opacity-100"
                         }`}
                       />
@@ -447,7 +447,7 @@ export function SelectedProjects() {
                         type="button"
                         onClick={() => selectProject(index)}
                         className={`relative z-[2] flex w-full items-center justify-between bg-transparent px-3 py-2.5 transition-colors duration-150 ease-out sm:px-4 sm:py-3 ${
-                          isVisualActive ? "text-white" : "text-[#1e1e1e]"
+                          isVisualActive ? "text-white" : "text-ink"
                         }`}
                         aria-pressed={isPressed}
                       >
@@ -465,7 +465,7 @@ export function SelectedProjects() {
             <Magnetic>
               <a
                 href="/projects"
-                className="group flex w-full items-center justify-center gap-2.5 bg-[#1e1e1e] p-3 text-[#f7f6f2] sm:p-3.5"
+                className="group flex w-full items-center justify-center gap-2.5 bg-strong p-3 text-cream sm:p-3.5"
               >
                 <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap transition-transform duration-300 group-hover:translate-x-0.5 sm:text-[18px]">
                   VIEW ALL PROJECTS
@@ -484,7 +484,7 @@ export function SelectedProjects() {
 
           {/* Right column */}
           <article className="flex min-w-0 flex-1 flex-col lg:min-h-0">
-            <div className="bg-[#252525] p-2 sm:p-2.5">
+            <div className="bg-strong p-2 sm:p-2.5">
               <div
                 data-projects-preview
                 data-cursor="expand"
@@ -520,7 +520,7 @@ export function SelectedProjects() {
                 >
                   <a
                     href={active.caseStudyHref}
-                    className="pointer-events-auto inline-flex translate-y-2 scale-[0.96] items-center justify-center gap-2.5 bg-[#ff6228] p-4 text-[#f7f6f2] transition-[transform,opacity] duration-400 ease-out group-hover/preview:translate-y-0 group-hover/preview:scale-100 group-focus-within/preview:translate-y-0 group-focus-within/preview:scale-100"
+                    className="pointer-events-auto inline-flex translate-y-2 scale-[0.96] items-center justify-center gap-2.5 bg-accent p-4 text-cream transition-[transform,opacity] duration-400 ease-out group-hover/preview:translate-y-0 group-hover/preview:scale-100 group-focus-within/preview:translate-y-0 group-focus-within/preview:scale-100"
                   >
                     <span className="font-[family-name:var(--font-vina-sans)] text-[18px] leading-none whitespace-nowrap sm:text-[20px]">
                       VIEW CASE STUDY
@@ -541,24 +541,24 @@ export function SelectedProjects() {
             <div
               ref={metaRef}
               data-projects-meta
-              className="flex flex-1 flex-col gap-3 overflow-visible border border-solid border-[#252525] bg-white p-2.5 sm:gap-3.5 lg:min-h-0 lg:overflow-y-auto"
+              className="flex flex-1 flex-col gap-3 overflow-visible border border-solid border-ink bg-background p-2.5 sm:gap-3.5 lg:min-h-0 lg:overflow-y-auto"
             >
               <div data-meta-part className="flex flex-col gap-2 sm:gap-2.5">
                 <div className="flex flex-col gap-2">
-                  <p className="font-[family-name:var(--font-gugi)] text-[11px] leading-normal text-black sm:text-[13px]">
+                  <p className="font-[family-name:var(--font-gugi)] text-[11px] leading-normal text-foreground sm:text-[13px]">
                     {active.meta}
                   </p>
                   <div className="h-px w-full bg-black/80" />
                 </div>
                 <div className="overflow-hidden">
-                  <h3 className="font-[family-name:var(--font-vina-sans)] text-[clamp(26px,4vw,42px)] leading-none text-[#ff6228]">
+                  <h3 className="font-[family-name:var(--font-vina-sans)] text-[clamp(26px,4vw,42px)] leading-none text-accent">
                     {active.title}
                   </h3>
                 </div>
               </div>
 
               <div data-meta-part className="flex flex-col gap-3">
-                <div className="flex flex-col gap-2 font-[family-name:var(--font-gugi)] text-black sm:gap-2.5">
+                <div className="flex flex-col gap-2 font-[family-name:var(--font-gugi)] text-foreground sm:gap-2.5">
                   <p className="text-[16px] leading-snug sm:text-[20px] sm:leading-snug">
                     {active.headline}
                   </p>
@@ -571,20 +571,20 @@ export function SelectedProjects() {
                   <div className="h-px w-full bg-black/80" />
                   <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-4">
                     <div className="flex w-full flex-col gap-0.5 sm:w-[200px]">
-                      <p className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-normal text-[#1e1e1e] sm:text-[18px]">
+                      <p className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-normal text-ink sm:text-[18px]">
                         DESIGN FOCUS
                       </p>
-                      <div className="font-[family-name:var(--font-gugi)] text-[13px] leading-6 text-black sm:text-[14px] sm:leading-7">
+                      <div className="font-[family-name:var(--font-gugi)] text-[13px] leading-6 text-foreground sm:text-[14px] sm:leading-7">
                         {active.designFocus.map((item) => (
                           <p key={item}>· {item}</p>
                         ))}
                       </div>
                     </div>
                     <div className="flex w-full flex-col gap-0.5 sm:w-[200px]">
-                      <p className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-normal text-[#1e1e1e] sm:text-[18px]">
+                      <p className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-normal text-ink sm:text-[18px]">
                         PROJECT TYPE
                       </p>
-                      <p className="font-[family-name:var(--font-gugi)] text-[13px] leading-normal text-black sm:text-[14px]">
+                      <p className="font-[family-name:var(--font-gugi)] text-[13px] leading-normal text-foreground sm:text-[14px]">
                         {active.projectType}
                       </p>
                     </div>
@@ -596,7 +596,7 @@ export function SelectedProjects() {
         </div>
 
         {isDesktopPin ? (
-          <p className="mt-3 hidden text-center font-[family-name:var(--font-gugi)] text-[12px] tracking-wide text-[#1e1e1e]/45 lg:block">
+          <p className="mt-3 hidden text-center font-[family-name:var(--font-gugi)] text-[12px] tracking-wide text-ink/45 lg:block">
             Scroll to explore · {active.letter} {activeIndex + 1}/{PROJECT_COUNT}
           </p>
         ) : null}

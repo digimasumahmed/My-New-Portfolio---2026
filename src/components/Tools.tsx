@@ -75,7 +75,7 @@ export function Tools() {
     <section
       ref={rootRef}
       id="tools"
-      className="relative w-full overflow-hidden bg-white"
+      className="relative w-full overflow-hidden bg-background"
       aria-label="Tools I use"
     >
       <div className="relative mx-auto w-full max-w-[1920px] pt-8 sm:pt-10 md:pt-[50px]">
@@ -91,7 +91,7 @@ export function Tools() {
           />
         </div>
 
-        <div className="mt-4 border-y border-solid border-[#1e1e1e] py-2 sm:mt-6 md:mt-[clamp(24px,2vw,50px)] md:py-2.5">
+        <div className="mt-4 border-y border-solid border-ink py-2 sm:mt-6 md:mt-[clamp(24px,2vw,50px)] md:py-2.5">
           <div data-tools-track className="overflow-hidden">
             <div className="tools-marquee flex w-max gap-2 px-4 sm:px-6 md:px-10">
               {track.map((tool, index) => (
@@ -99,7 +99,7 @@ export function Tools() {
                   key={`${tool.id}-${index}`}
                   data-tool-item
                   data-cursor="expand"
-                  className="group flex w-[110px] shrink-0 items-center justify-center overflow-hidden border border-solid border-[#1e1e1e] px-4 py-4 sm:w-[140px] sm:px-6 sm:py-5 md:w-[clamp(140px,12vw,220px)] md:px-10"
+                  className="group flex w-[110px] shrink-0 items-center justify-center overflow-hidden border border-solid border-ink px-4 py-4 sm:w-[140px] sm:px-6 sm:py-5 md:w-[clamp(140px,12vw,220px)] md:px-10"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img

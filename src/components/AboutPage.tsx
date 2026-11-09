@@ -70,16 +70,16 @@ function NumberedCard({
   return (
     <div
       data-about-card
-      className="group/card flex flex-col border border-solid border-[#1e1e1e] bg-white px-5 py-8 transition-[border-color,transform] duration-400 ease-out hover:border-[#ff7340] sm:px-[30px] sm:py-10"
+      className="group/card flex flex-col border border-solid border-ink bg-background px-5 py-8 transition-[border-color,transform] duration-400 ease-out hover:border-accent-bright sm:px-[30px] sm:py-10"
     >
       <div className="flex gap-3 sm:gap-4">
         <p
           data-card-index
-          className="shrink-0 font-[family-name:var(--font-vina-sans)] text-[clamp(28px,3.5vw,40px)] leading-none text-[#1e1e1e] transition-colors duration-300 group-hover/card:text-[#ff7340]"
+          className="shrink-0 font-[family-name:var(--font-vina-sans)] text-[clamp(28px,3.5vw,40px)] leading-none text-ink transition-colors duration-300 group-hover/card:text-accent-bright"
         >
           {index}
         </p>
-        <div className="flex min-w-0 flex-col gap-3 text-[#1e1e1e] sm:gap-3.5">
+        <div className="flex min-w-0 flex-col gap-3 text-ink sm:gap-3.5">
           <div className="overflow-hidden">
             <h3
               data-card-title
@@ -377,7 +377,7 @@ export function AboutPage() {
   return (
     <div ref={pageRef} className="relative">
       <SiteHeader />
-      <main className="flex-1 bg-white">
+      <main className="flex-1 bg-background">
         <section
           className="mx-auto w-full max-w-[1920px] px-4 pt-8 pb-4 sm:px-6 sm:pt-12 md:px-10 md:pt-[100px] md:pb-6"
           aria-label="About me"
@@ -388,14 +388,14 @@ export function AboutPage() {
               <div className="w-full overflow-hidden py-2 sm:py-3">
                 <h1
                   data-about-title
-                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(56px,12vw,200px)] leading-[0.9] text-[#ff7340]"
+                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(56px,12vw,200px)] leading-[0.9] text-accent-bright"
                 >
                   ABOUT ME.
                 </h1>
               </div>
               <p
                 data-about-subtitle
-                className="font-[family-name:var(--font-gugi)] text-[clamp(15px,2.1vw,24px)] leading-snug text-[#1e1e1e] sm:leading-8"
+                className="font-[family-name:var(--font-gugi)] text-[clamp(15px,2.1vw,24px)] leading-snug text-ink sm:leading-8"
               >
                 THE PERSON BEHIND THE PIXELS.
               </p>
@@ -403,10 +403,10 @@ export function AboutPage() {
 
             {/* Intro: portrait + bio */}
             <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch">
-              <div className="flex shrink-0 flex-col border border-solid border-[#1e1e1e] p-4 sm:p-5 lg:w-[min(796px,43%)]">
+              <div className="flex shrink-0 flex-col border border-solid border-ink p-4 sm:p-5 lg:w-[min(796px,43%)]">
                 <div
                   data-about-portrait
-                  className="relative aspect-[1507/1044] w-full flex-1 overflow-hidden bg-[#1e1e1e] lg:aspect-auto lg:min-h-[28rem]"
+                  className="relative aspect-[1507/1044] w-full flex-1 overflow-hidden bg-strong lg:aspect-auto lg:min-h-[28rem]"
                 >
                   <Image
                     src="/about/portrait.png"
@@ -419,20 +419,20 @@ export function AboutPage() {
                 </div>
               </div>
 
-              <div className="flex min-w-0 flex-1 flex-col justify-center gap-5 border border-solid border-[#1e1e1e] bg-white p-2.5 sm:gap-5 sm:p-2.5">
-                <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4.5vw,60px)] leading-none text-[#1e1e1e]">
+              <div className="flex min-w-0 flex-1 flex-col justify-center gap-5 border border-solid border-ink bg-background p-2.5 sm:gap-5 sm:p-2.5">
+                <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4.5vw,60px)] leading-none text-ink">
                   <span className="inline-block overflow-hidden align-bottom">
                     <span data-intro-line className="block">
                       HEY, I&apos;M
                     </span>
                   </span>{" "}
-                  <span className="inline-block overflow-hidden align-bottom text-[#ff7340]">
+                  <span className="inline-block overflow-hidden align-bottom text-accent-bright">
                     <span data-intro-line className="block">MASUM AHMED.</span>
                   </span>
                 </h2>
 
                 <div className="flex flex-col gap-8 sm:gap-10">
-                  <div className="flex flex-col gap-4 font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[18px] sm:leading-8 sm:text-justify">
+                  <div className="flex flex-col gap-4 font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[18px] sm:leading-8 sm:text-justify">
                     <p data-intro-para>
                       A passionate UI/UX Designer who transforms ideas into
                       intuitive, visually compelling, and meaningful digital
@@ -456,9 +456,9 @@ export function AboutPage() {
                       <div
                         key={tag}
                         data-intro-badge
-                        className="flex items-center justify-center bg-[#1e1e1e] px-4 py-3 sm:flex-1 sm:py-4 xl:flex-none"
+                        className="flex items-center justify-center bg-strong px-4 py-3 sm:flex-1 sm:py-4 xl:flex-none"
                       >
-                        <p className="text-center font-[family-name:var(--font-gugi)] text-[13px] leading-tight text-[#f7f6f2] sm:text-[16px] xl:text-[20px]">
+                        <p className="text-center font-[family-name:var(--font-gugi)] text-[13px] leading-tight text-cream sm:text-[16px] xl:text-[20px]">
                           {tag}
                         </p>
                       </div>
@@ -474,23 +474,23 @@ export function AboutPage() {
               <div className="flex w-full flex-col gap-4 xl:w-[min(796px,43%)]">
                 <div
                   data-about-story
-                  className="flex flex-col gap-5 border border-solid border-[#1e1e1e] bg-white p-3 sm:gap-6 sm:p-4"
+                  className="flex flex-col gap-5 border border-solid border-ink bg-background p-3 sm:gap-6 sm:p-4"
                 >
                   <div className="flex flex-col gap-3 sm:gap-4">
                     <h2
                       data-story-heading
-                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-[#ff7340]"
+                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-accent-bright"
                     >
                       MY STORY.
                     </h2>
                     <p
                       data-story-sub
-                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-[#1e1e1e]"
+                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-ink"
                     >
                       CREATIVITY MEETS PURPOSE.
                     </p>
                   </div>
-                  <div className="flex flex-col gap-4 font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[18px] sm:leading-8 sm:text-justify">
+                  <div className="flex flex-col gap-4 font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[18px] sm:leading-8 sm:text-justify">
                     <p data-story-para>
                       My journey into design began with a curiosity about how
                       creativity and technology come together to shape the way
@@ -521,11 +521,11 @@ export function AboutPage() {
 
                 <div
                   data-about-experience
-                  className="flex flex-1 flex-col gap-5 border border-solid border-[#1e1e1e] p-4 sm:gap-6 sm:p-5"
+                  className="flex flex-1 flex-col gap-5 border border-solid border-ink p-4 sm:gap-6 sm:p-5"
                 >
                   <h2
                     data-exp-heading
-                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-[#ff7340]"
+                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-accent-bright"
                   >
                     EXPERIENCE &amp; JOURNEY.
                   </h2>
@@ -533,13 +533,13 @@ export function AboutPage() {
                   <div className="flex flex-col gap-4">
                     <p
                       data-exp-sub
-                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-[#1e1e1e]"
+                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-ink"
                     >
                       WHERE CREATIVITY MEETS EXPERIENCE.
                     </p>
                     <p
                       data-exp-intro
-                      className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[18px] sm:leading-8 sm:text-justify"
+                      className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[18px] sm:leading-8 sm:text-justify"
                     >
                       My professional journey is driven by creativity, continuous
                       learning, and hands-on experience in designing meaningful
@@ -556,19 +556,19 @@ export function AboutPage() {
                       >
                         <h3
                           data-exp-item
-                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(22px,2.8vw,32px)] leading-none text-[#ff7340]"
+                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(22px,2.8vw,32px)] leading-none text-accent-bright"
                         >
                           01. CURRENT POSITION
                         </h3>
                         <p
                           data-exp-item
-                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-[#1e1e1e]"
+                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-ink"
                         >
                           UI/UX DESIGNER &amp; SOCIAL MEDIA MANAGER
                         </p>
                         <div
                           data-exp-item
-                          className="flex flex-col gap-2 font-[family-name:var(--font-gugi)] text-[15px] leading-8 text-[#1e1e1e] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:text-[18px]"
+                          className="flex flex-col gap-2 font-[family-name:var(--font-gugi)] text-[15px] leading-8 text-ink sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:text-[18px]"
                         >
                           <a
                             href="#"
@@ -594,7 +594,7 @@ export function AboutPage() {
                         </div>
                         <p
                           data-exp-item
-                          className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[18px] sm:leading-8 sm:text-justify"
+                          className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[18px] sm:leading-8 sm:text-justify"
                         >
                           Currently working as a UI/UX DESIGNER &amp; SOCIAL
                           MEDIA MANAGER at KODE BY KRAFT, where I contribute to
@@ -604,13 +604,13 @@ export function AboutPage() {
                         </p>
                         <p
                           data-exp-item
-                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-[#1e1e1e]"
+                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-ink"
                         >
                           Key Responsibilities:
                         </p>
                         <ul
                           data-exp-item
-                          className="list-disc space-y-0 pl-[27px] font-[family-name:var(--font-gugi)] text-[15px] leading-8 text-[#1e1e1e] sm:text-[18px] sm:text-justify"
+                          className="list-disc space-y-0 pl-[27px] font-[family-name:var(--font-gugi)] text-[15px] leading-8 text-ink sm:text-[18px] sm:text-justify"
                         >
                           <li>
                             Designing user-friendly web and digital interfaces.
@@ -637,20 +637,20 @@ export function AboutPage() {
                       >
                         <h3
                           data-exp-item
-                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(22px,2.8vw,32px)] leading-none text-[#ff7340]"
+                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(22px,2.8vw,32px)] leading-none text-accent-bright"
                         >
                           02. CREATIVE JOURNEY
                         </h3>
                         <p
                           data-exp-item
-                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-[#1e1e1e]"
+                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-ink"
                         >
                           UI/UX Designer &amp; Social Media Manager | Independent
                           Creative Projects
                         </p>
                         <p
                           data-exp-item
-                          className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[18px] sm:leading-8 sm:text-justify"
+                          className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[18px] sm:leading-8 sm:text-justify"
                         >
                           Combining creative design with digital communication to
                           build engaging and meaningful brand experiences. My
@@ -660,13 +660,13 @@ export function AboutPage() {
                         </p>
                         <p
                           data-exp-item
-                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-[#1e1e1e]"
+                          className="font-[family-name:var(--font-vina-sans)] text-[clamp(18px,2.2vw,24px)] leading-none text-ink"
                         >
                           Key Focus Areas:
                         </p>
                         <ul
                           data-exp-item
-                          className="list-disc space-y-0 pl-[27px] font-[family-name:var(--font-gugi)] text-[15px] leading-8 text-[#1e1e1e] sm:text-[18px] sm:text-justify"
+                          className="list-disc space-y-0 pl-[27px] font-[family-name:var(--font-gugi)] text-[15px] leading-8 text-ink sm:text-[18px] sm:text-justify"
                         >
                           <li>UI/UX &amp; Responsive Web Design</li>
                           <li>
@@ -685,17 +685,17 @@ export function AboutPage() {
               <div className="flex w-full flex-col gap-4 xl:w-[min(1028px,56%)]">
                 <div
                   data-about-card-group
-                  className="flex flex-col gap-5 border border-solid border-[#1e1e1e] p-4 sm:gap-6 sm:p-5"
+                  className="flex flex-col gap-5 border border-solid border-ink p-4 sm:gap-6 sm:p-5"
                 >
                   <h2
                     data-group-heading
-                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-[#ff7340]"
+                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-accent-bright"
                   >
                     WHAT I BRING TO THE TABLE.
                   </h2>
                   <p
                     data-group-heading
-                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-[#1e1e1e]"
+                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-ink"
                   >
                     MY EXPERTISE.
                   </p>
@@ -708,24 +708,24 @@ export function AboutPage() {
 
                 <div
                   data-about-card-group
-                  className="flex flex-col gap-5 border border-solid border-[#1e1e1e] p-4 sm:gap-6 sm:p-5"
+                  className="flex flex-col gap-5 border border-solid border-ink p-4 sm:gap-6 sm:p-5"
                 >
                   <h2
                     data-group-heading
-                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-[#ff7340]"
+                    className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-accent-bright"
                   >
                     MY DESIGN PHILOSOPHY.
                   </h2>
                   <div className="flex flex-col gap-4">
                     <p
                       data-group-heading
-                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-[#1e1e1e]"
+                      className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,3.5vw,48px)] leading-[0.95] text-ink"
                     >
                       DESIGN WITH PURPOSE.
                     </p>
                     <p
                       data-group-copy
-                      className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[17px] sm:leading-8"
+                      className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[17px] sm:leading-8"
                     >
                       I believe great design is not just about how something
                       looks. It is about how effectively it works, how naturally
@@ -734,7 +734,7 @@ export function AboutPage() {
                     </p>
                     <p
                       data-group-copy
-                      className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[17px] sm:leading-8"
+                      className="font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[17px] sm:leading-8"
                     >
                       My approach is guided by three core principles.
                     </p>

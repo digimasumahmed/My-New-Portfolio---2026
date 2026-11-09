@@ -39,7 +39,7 @@ function FieldLabel({ htmlFor, children }: { htmlFor: string; children: string }
   return (
     <label
       htmlFor={htmlFor}
-      className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-5 tracking-[0.02em] text-[#ff7340] sm:text-[24px]"
+      className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-5 tracking-[0.02em] text-accent-bright sm:text-[24px]"
     >
       {children}
     </label>
@@ -47,7 +47,7 @@ function FieldLabel({ htmlFor, children }: { htmlFor: string; children: string }
 }
 
 const inputClassName =
-  "w-full border border-solid border-[#1e1e1e] bg-white px-4 py-2.5 font-[family-name:var(--font-gugi)] text-[15px] leading-6 tracking-[0.02em] text-[#1e1e1e] outline-none transition-[border-color,box-shadow] placeholder:text-[rgba(30,30,30,0.5)] focus:border-[#ff7340] focus:shadow-[0_0_0_1px_#ff7340]";
+  "w-full border border-solid border-ink bg-background px-4 py-2.5 font-[family-name:var(--font-gugi)] text-[15px] leading-6 tracking-[0.02em] text-ink outline-none transition-[border-color,box-shadow] placeholder:text-muted focus:border-accent-bright focus:shadow-[0_0_0_1px_#ff7340]";
 
 export function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
@@ -83,20 +83,20 @@ export function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1 bg-white">
+      <main className="flex-1 bg-background">
         <section
           className="mx-auto w-full max-w-[1920px] px-4 pt-8 pb-10 sm:px-6 sm:pt-12 md:px-[50px] md:pt-[100px] md:pb-16"
           aria-label="Contact"
         >
           <div className="mx-auto flex w-full max-w-[1820px] flex-col gap-8 sm:gap-10 md:gap-10">
             {/* Intro */}
-            <div className="flex flex-col justify-center border border-solid border-[#1e1e1e] px-4 py-8 sm:px-5 sm:py-10">
+            <div className="flex flex-col justify-center border border-solid border-ink px-4 py-8 sm:px-5 sm:py-10">
               <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
-                <h1 className="min-w-0 font-[family-name:var(--font-vina-sans)] text-[clamp(40px,7vw,100px)] leading-[0.95] uppercase text-[#1e1e1e] sm:leading-[1.08]">
+                <h1 className="min-w-0 font-[family-name:var(--font-vina-sans)] text-[clamp(40px,7vw,100px)] leading-[0.95] uppercase text-ink sm:leading-[1.08]">
                   <span className="block">Let&apos;s build something</span>
-                  <span className="block text-[#ff7340]">extraordinary.</span>
+                  <span className="block text-accent-bright">extraordinary.</span>
                 </h1>
-                <p className="w-full max-w-[697px] shrink-0 font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-[#1e1e1e] sm:text-[20px] sm:leading-8 lg:pb-1">
+                <p className="w-full max-w-[697px] shrink-0 font-[family-name:var(--font-gugi)] text-[15px] leading-7 text-pretty text-ink sm:text-[20px] sm:leading-8 lg:pb-1">
                   I am currently open to full-time roles and selected freelance
                   projects. If you are building something worth building, I
                   would like to hear about it.
@@ -106,8 +106,8 @@ export function ContactPage() {
 
             {/* Visual + form */}
             <div className="flex flex-col gap-6 lg:flex-row lg:items-stretch lg:gap-10">
-              <div className="flex w-full items-center justify-center border border-solid border-[#1e1e1e] p-4 sm:p-5 lg:min-h-[580px] lg:flex-1">
-                <div className="relative aspect-[890/516] w-full overflow-hidden bg-[#1e1e1e]">
+              <div className="flex w-full items-center justify-center border border-solid border-ink p-4 sm:p-5 lg:min-h-[580px] lg:flex-1">
+                <div className="relative aspect-[890/516] w-full overflow-hidden bg-strong">
                   <Image
                     src="/contact/visual.jpg"
                     alt=""
@@ -121,7 +121,7 @@ export function ContactPage() {
 
               <form
                 onSubmit={handleSubmit}
-                className="flex w-full flex-col gap-8 border border-solid border-[#1e1e1e] px-4 py-5 sm:gap-10 sm:px-4 sm:py-5 lg:flex-1"
+                className="flex w-full flex-col gap-8 border border-solid border-ink px-4 py-5 sm:gap-10 sm:px-4 sm:py-5 lg:flex-1"
                 noValidate
               >
                 <div className="flex flex-col gap-2.5">
@@ -185,7 +185,7 @@ export function ContactPage() {
 
                 <button
                   type="submit"
-                  className="group flex h-[52px] w-full items-center justify-center gap-1 bg-[#ff7340] px-4 py-2.5 transition-colors duration-300 hover:bg-[#1e1e1e] sm:h-[60px]"
+                  className="group flex h-[52px] w-full items-center justify-center gap-1 bg-accent-bright px-4 py-2.5 transition-colors duration-300 hover:bg-strong sm:h-[60px]"
                 >
                   <span className="flex size-5 items-center justify-center overflow-hidden transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     {/* eslint-disable-next-line @next/next/no-img-element */}

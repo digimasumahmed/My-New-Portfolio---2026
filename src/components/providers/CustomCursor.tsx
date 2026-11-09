@@ -57,7 +57,7 @@ export function CustomCursor() {
       }}
     >
       <motion.div
-        className="rounded-full bg-[#ff6228]"
+        className="rounded-full bg-accent"
         animate={{
           width: hovering ? 56 : 14,
           height: hovering ? 56 : 14,

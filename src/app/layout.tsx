@@ -27,13 +27,19 @@ export const metadata: Metadata = {
     "I transform complex ideas into intuitive, visually compelling digital experiences.",
 };
 
+const themeInitScript = `(function(){try{var s=localStorage.getItem('masum-theme');var t=s==='light'||s==='dark'?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');document.documentElement.style.colorScheme=t;}catch(e){}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${vinaSans.variable} ${gugi.variable} ${anton.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="flex min-h-full flex-col bg-background text-foreground">
         <MotionRoot>{children}</MotionRoot>
       </body>
     </html>

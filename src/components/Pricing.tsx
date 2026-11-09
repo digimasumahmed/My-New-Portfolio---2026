@@ -78,7 +78,7 @@ function MarqueeItem({
   label: string;
   tone: "orange" | "black";
 }) {
-  const color = tone === "orange" ? "text-[#ff6228]" : "text-[#252525]";
+  const color = tone === "orange" ? "text-accent" : "text-foreground";
   const star =
     tone === "orange"
       ? "/pricing/star-orange.svg"
@@ -233,7 +233,7 @@ export function Pricing() {
     <section
       ref={rootRef}
       id="pricing"
-      className="relative w-full overflow-hidden bg-white"
+      className="relative w-full overflow-hidden bg-background"
       aria-label="Pricing"
     >
       <div className="mx-auto w-full max-w-[1920px] pt-12 pb-8 sm:pt-16 md:pt-[100px] md:pb-10">
@@ -260,8 +260,8 @@ export function Pricing() {
                   onClick={() => setActivePlan(plan)}
                   className={`group flex flex-1 items-center justify-between px-3 py-2.5 transition-colors sm:px-4 ${
                     active
-                      ? "bg-[#ff6228] text-[#f7f6f2]"
-                      : "bg-[#1e1e1e] text-[#f7f6f2]"
+                      ? "bg-accent text-cream"
+                      : "bg-strong text-cream"
                   }`}
                   aria-pressed={active}
                 >
@@ -284,7 +284,7 @@ export function Pricing() {
                   key={card.title}
                   data-pricing-card
                   data-cursor="expand"
-                  className="group border border-solid border-[#1e1e1e] bg-white p-2.5 transition-[border-color,box-shadow] duration-400 ease-out hover:border-[#ff6228] hover:shadow-[0_12px_30px_rgba(30,30,30,0.08)]"
+                  className="group border border-solid border-ink bg-background p-2.5 transition-[border-color,box-shadow] duration-400 ease-out hover:border-accent hover:shadow-[0_12px_30px_rgba(30,30,30,0.08)]"
                 >
                   <div className="flex flex-col gap-4 transition-transform duration-400 ease-out group-hover:-translate-y-1">
                   <div
@@ -302,15 +302,15 @@ export function Pricing() {
 
                   <div className="flex flex-col gap-3 sm:gap-4">
                     <div className="flex flex-col gap-2.5">
-                      <p className="font-[family-name:var(--font-gugi)] text-[13px] leading-normal text-[#1e1e1e] sm:text-[14px]">
+                      <p className="font-[family-name:var(--font-gugi)] text-[13px] leading-normal text-ink sm:text-[14px]">
                         {card.category}
                       </p>
-                      <div className="h-px w-full bg-[#1e1e1e]/80" />
+                      <div className="h-px w-full bg-strong/80" />
                     </div>
-                    <h3 className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,5vw,48px)] leading-none text-[#1e1e1e]">
+                    <h3 className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,5vw,48px)] leading-none text-ink">
                       {card.title}
                     </h3>
-                    <p className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-pretty text-[#1e1e1e] sm:text-justify sm:text-[16px] sm:leading-normal">
+                    <p className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-pretty text-ink sm:text-justify sm:text-[16px] sm:leading-normal">
                       {card.description}
                     </p>
                   </div>
@@ -318,17 +318,17 @@ export function Pricing() {
                   <div className="mt-auto flex flex-col gap-4">
                     <div className="flex flex-col gap-3 sm:gap-4">
                       <div className="flex items-center justify-between gap-3">
-                        <p className="font-[family-name:var(--font-gugi)] text-[16px] leading-normal text-[#1e1e1e] sm:text-[20px]">
+                        <p className="font-[family-name:var(--font-gugi)] text-[16px] leading-normal text-ink sm:text-[20px]">
                           {activePlan}
                         </p>
                         <p
                           data-pricing-price
-                          className="origin-right font-[family-name:var(--font-vina-sans)] text-[32px] leading-none text-[#f36b32] sm:text-[40px]"
+                          className="origin-right font-[family-name:var(--font-vina-sans)] text-[32px] leading-none text-accent-text sm:text-[40px]"
                         >
                           {card.price}
                         </p>
                       </div>
-                      <ul className="list-disc space-y-0 pl-5 font-[family-name:var(--font-gugi)] text-[13px] leading-7 text-pretty text-[#1e1e1e] sm:pl-[21px] sm:text-justify sm:text-[14px] sm:leading-[30px]">
+                      <ul className="list-disc space-y-0 pl-5 font-[family-name:var(--font-gugi)] text-[13px] leading-7 text-pretty text-ink sm:pl-[21px] sm:text-justify sm:text-[14px] sm:leading-[30px]">
                         {card.features.map((feature) => (
                           <li key={feature}>{feature}</li>
                         ))}
@@ -338,7 +338,7 @@ export function Pricing() {
                     <Magnetic>
                       <a
                         href="/contact"
-                        className="group flex w-full items-center justify-between gap-3 bg-[#ff6228] p-3 text-[#f7f6f2] sm:p-4"
+                        className="group flex w-full items-center justify-between gap-3 bg-accent p-3 text-cream sm:p-4"
                       >
                         <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none transition-transform duration-300 group-hover:translate-x-0.5 sm:text-[20px]">
                           {card.cta}
@@ -354,16 +354,16 @@ export function Pricing() {
 
             <div
               data-custom-plan
-              className="relative z-10 flex w-full flex-col items-start justify-between gap-5 overflow-hidden bg-[#1e1e1e] p-4 sm:gap-6 sm:p-5 md:flex-row md:items-center"
+              className="relative z-10 flex w-full flex-col items-start justify-between gap-5 overflow-hidden bg-strong p-4 sm:gap-6 sm:p-5 md:flex-row md:items-center"
             >
               <div className="flex min-w-0 max-w-[656px] flex-1 flex-col gap-3 sm:gap-4">
                 <p
                   data-custom-heading
-                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,6vw,48px)] leading-none text-[#ff6228]"
+                  className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,6vw,48px)] leading-none text-accent"
                 >
                   Need Custom Plan?
                 </p>
-                <p className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-pretty text-[#f7f6f2] sm:text-justify sm:text-[16px] sm:leading-normal">
+                <p className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-pretty text-cream sm:text-justify sm:text-[16px] sm:leading-normal">
                   Perfect for businesses with unique requirements, offering
                   tailored creative solutions designed to bring ambitious ideas
                   to life.
@@ -374,9 +374,9 @@ export function Pricing() {
                   <a
                     href="/contact"
                     data-custom-cta
-                    className="group flex w-full items-center justify-between bg-[#f7f6f2] p-3 sm:p-4 md:w-[240px] md:max-w-[240px]"
+                    className="group flex w-full items-center justify-between bg-panel p-3 text-ink sm:p-4 md:w-[240px] md:max-w-[240px]"
                   >
-                    <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-[#ff6228] transition-transform duration-300 group-hover:translate-x-0.5 sm:text-[20px]">
+                    <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-accent transition-transform duration-300 group-hover:translate-x-0.5 sm:text-[20px]">
                       Contact Me
                     </span>
                     <ArrowIcon variant="orange" />

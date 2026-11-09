@@ -7,8 +7,8 @@ import type { ProjectDetail } from "@/data/project-details";
 
 function MetaRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex w-full flex-col justify-center border-b border-solid border-[#1e1e1e] py-3 first:border-t sm:py-4">
-      <div className="flex w-full items-start justify-between gap-4 font-[family-name:var(--font-gugi)] text-[14px] leading-none text-[#1e1e1e] sm:text-[16px]">
+    <div className="flex w-full flex-col justify-center border-b border-solid border-ink py-3 first:border-t sm:py-4">
+      <div className="flex w-full items-start justify-between gap-4 font-[family-name:var(--font-gugi)] text-[14px] leading-none text-ink sm:text-[16px]">
         <p className="shrink-0">{label}</p>
         <p className="min-w-0 text-right">{value}</p>
       </div>
@@ -29,7 +29,7 @@ function NumberedCard({
   accent?: boolean;
   compact?: boolean;
 }) {
-  const tone = accent ? "text-[#ff7340]" : "text-[#1e1e1e]";
+  const tone = accent ? "text-accent-bright" : "text-ink";
   const indexSize = compact
     ? "text-[clamp(36px,4vw,60px)]"
     : "text-[clamp(40px,5vw,80px)]";
@@ -38,7 +38,7 @@ function NumberedCard({
     : "text-[clamp(24px,3.5vw,60px)]";
 
   return (
-    <div className="flex flex-1 flex-col border border-solid border-[#1e1e1e] bg-white px-5 py-8 sm:px-[30px] sm:py-10">
+    <div className="flex flex-1 flex-col border border-solid border-ink bg-background px-5 py-8 sm:px-[30px] sm:py-10">
       <div className="flex gap-3 sm:gap-4">
         <p
           className={`shrink-0 font-[family-name:var(--font-vina-sans)] leading-none ${indexSize} ${tone}`}
@@ -51,7 +51,7 @@ function NumberedCard({
           >
             {title}
           </h3>
-          <p className="font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-[#1e1e1e] sm:text-justify sm:text-[18px]">
+          <p className="font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-ink sm:text-justify sm:text-[18px]">
             {body}
           </p>
         </div>
@@ -91,20 +91,20 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1 bg-white">
+      <main className="flex-1 bg-background">
         <article className="mx-auto w-full max-w-[1920px] px-5 pb-10 sm:px-6 md:px-10 md:pb-16">
           <div className="mx-auto flex w-full max-w-[1840px] flex-col gap-10 pt-8 sm:gap-12 sm:pt-12 md:gap-10 md:pt-[100px]">
             {/* Title + media */}
             <div className="flex flex-col gap-5 sm:gap-6">
-              <div className="flex flex-col gap-4 border border-solid border-[#1e1e1e] px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-5">
-                <h1 className="min-w-0 font-[family-name:var(--font-vina-sans)] text-[clamp(36px,7vw,80px)] leading-none text-[#ff7340]">
+              <div className="flex flex-col gap-4 border border-solid border-ink px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-5">
+                <h1 className="min-w-0 font-[family-name:var(--font-vina-sans)] text-[clamp(36px,7vw,80px)] leading-none text-accent-bright">
                   {project.title}
                 </h1>
                 <a
                   href={project.liveHref}
-                  className="group inline-flex h-[52px] shrink-0 items-center justify-center gap-2.5 bg-[#1e1e1e] px-4 sm:h-[60px] sm:px-4"
+                  className="group inline-flex h-[52px] shrink-0 items-center justify-center gap-2.5 bg-strong px-4 sm:h-[60px] sm:px-4"
                 >
-                  <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-[#ff7340] sm:text-[24px]">
+                  <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-accent-bright sm:text-[24px]">
                     Live Website
                   </span>
                   <span className="flex size-[30px] items-center justify-center overflow-hidden">
@@ -123,7 +123,7 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
               </div>
 
               <div className="flex flex-col gap-4">
-                <div className="flex items-center justify-between font-[family-name:var(--font-gugi)] text-[16px] text-[#1e1e1e] sm:text-[20px]">
+                <div className="flex items-center justify-between font-[family-name:var(--font-gugi)] text-[16px] text-ink sm:text-[20px]">
                   <p>Desktop Preview</p>
                   <p>01 / 03</p>
                 </div>
@@ -156,7 +156,7 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
                           sizes="(max-width: 768px) 100vw, 33vw"
                         />
                       </div>
-                      <p className="w-full text-center font-[family-name:var(--font-gugi)] text-[18px] leading-none text-[#1e1e1e] sm:text-[24px]">
+                      <p className="w-full text-center font-[family-name:var(--font-gugi)] text-[18px] leading-none text-ink sm:text-[24px]">
                         {device.label}
                       </p>
                     </div>
@@ -168,12 +168,12 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
             {/* Overview + Design Outcome */}
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-6 xl:flex-row xl:items-stretch">
-                <div className="flex w-full flex-col gap-5 border border-solid border-[#1e1e1e] bg-white p-2.5 xl:min-w-0 xl:flex-1">
-                  <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-[#ff7340]">
+                <div className="flex w-full flex-col gap-5 border border-solid border-ink bg-background p-2.5 xl:min-w-0 xl:flex-1">
+                  <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-accent-bright">
                     Project Overview
                   </h2>
                   <div className="flex flex-col gap-6 sm:gap-6">
-                    <p className="font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-[#1e1e1e] sm:text-justify sm:text-[18px] sm:leading-[30px]">
+                    <p className="font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-ink sm:text-justify sm:text-[18px] sm:leading-[30px]">
                       {project.overview}
                     </p>
                     <div className="flex flex-col">
@@ -184,11 +184,11 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
                   </div>
                 </div>
 
-                <div className="flex w-full flex-col gap-5 border border-solid border-[#1e1e1e] bg-white p-5 xl:w-[min(918px,50%)]">
-                  <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-[#ff7340]">
+                <div className="flex w-full flex-col gap-5 border border-solid border-ink bg-background p-5 xl:w-[min(918px,50%)]">
+                  <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-accent-bright">
                     Design Outcome
                   </h2>
-                  <div className="flex flex-col gap-4 font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-[#1e1e1e] sm:text-justify sm:text-[18px]">
+                  <div className="flex flex-col gap-4 font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-ink sm:text-justify sm:text-[18px]">
                     {project.outcome.map((paragraph) => (
                       <p key={paragraph.slice(0, 48)}>{paragraph}</p>
                     ))}
@@ -197,7 +197,7 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
               </div>
 
               {/* Challenge / Approach / Solution */}
-              <div className="flex flex-col gap-4 border border-solid border-[#1e1e1e] p-4 sm:p-5 lg:flex-row lg:items-stretch lg:gap-4">
+              <div className="flex flex-col gap-4 border border-solid border-ink p-4 sm:p-5 lg:flex-row lg:items-stretch lg:gap-4">
                 {project.pillars.map((pillar) => (
                   <NumberedCard key={pillar.index} {...pillar} accent />
                 ))}
@@ -205,8 +205,8 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
 
               {/* Design Process + Decisions / Goals */}
               <div className="flex flex-col gap-4 xl:flex-row xl:items-stretch xl:gap-6">
-                <div className="flex w-full flex-col gap-5 border border-solid border-[#1e1e1e] p-4 sm:gap-6 sm:p-5 xl:w-[min(898px,49%)]">
-                  <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-[#ff7340]">
+                <div className="flex w-full flex-col gap-5 border border-solid border-ink p-4 sm:gap-6 sm:p-5 xl:w-[min(898px,49%)]">
+                  <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-accent-bright">
                     Design Process
                   </h2>
                   <div className="flex flex-1 flex-col gap-4">
@@ -217,8 +217,8 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
                 </div>
 
                 <div className="flex w-full flex-col gap-4 xl:min-w-0 xl:flex-1">
-                  <div className="flex flex-col gap-5 border border-solid border-[#1e1e1e] p-4 sm:gap-6 sm:p-5">
-                    <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-[#ff7340]">
+                  <div className="flex flex-col gap-5 border border-solid border-ink p-4 sm:gap-6 sm:p-5">
+                    <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,4vw,60px)] leading-none text-accent-bright">
                       Key Design Decisions
                     </h2>
                     <div className="flex flex-col gap-4">
@@ -232,15 +232,15 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-5 border border-solid border-[#1e1e1e] bg-white p-2.5 sm:gap-5">
-                    <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-[#ff7340]">
+                  <div className="flex flex-col gap-5 border border-solid border-ink bg-background p-2.5 sm:gap-5">
+                    <h2 className="font-[family-name:var(--font-vina-sans)] text-[clamp(32px,5vw,60px)] leading-none text-accent-bright">
                       Project Goals
                     </h2>
                     <div className="flex flex-col gap-8 sm:gap-10">
-                      <p className="font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-[#1e1e1e] sm:text-justify sm:text-[18px]">
+                      <p className="font-[family-name:var(--font-gugi)] text-[15px] leading-relaxed text-pretty text-ink sm:text-justify sm:text-[18px]">
                         {project.goals.summary}
                       </p>
-                      <div className="flex flex-col gap-2 font-[family-name:var(--font-gugi)] text-[#1e1e1e]">
+                      <div className="flex flex-col gap-2 font-[family-name:var(--font-gugi)] text-ink">
                         <p className="text-[15px] leading-none sm:text-[16px]">
                           {project.goals.objectivesTitle}
                         </p>
@@ -260,7 +260,7 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-4">
               <Link
                 href="/projects"
-                className="group flex h-16 flex-1 items-center justify-center gap-2.5 bg-[#1e1e1e] px-4 sm:h-20"
+                className="group flex h-16 flex-1 items-center justify-center gap-2.5 bg-strong px-4 sm:h-20"
               >
                 <span className="flex size-8 items-center justify-center overflow-hidden">
                   <span className="-scale-y-100 rotate-180 transition-transform duration-300 group-hover:-translate-x-0.5">
@@ -274,15 +274,15 @@ export function ProjectDetailPage({ project }: { project: ProjectDetail }) {
                     />
                   </span>
                 </span>
-                <span className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-none whitespace-nowrap text-[#f7f6f2] sm:text-[28px]">
+                <span className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-none whitespace-nowrap text-cream sm:text-[28px]">
                   BACK TO PROJECTS
                 </span>
               </Link>
               <Link
                 href="/projects"
-                className="group flex h-16 flex-1 items-center justify-center gap-2.5 bg-[#ff7340] px-4 sm:h-20"
+                className="group flex h-16 flex-1 items-center justify-center gap-2.5 bg-accent-bright px-4 sm:h-20"
               >
-                <span className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-none whitespace-nowrap text-[#f7f6f2] sm:text-[28px]">
+                <span className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-none whitespace-nowrap text-cream sm:text-[28px]">
                   NEXT PROJECTS
                 </span>
                 <span className="flex size-8 items-center justify-center overflow-hidden transition-transform duration-300 group-hover:translate-x-0.5">

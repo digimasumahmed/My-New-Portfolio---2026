@@ -121,22 +121,22 @@ export function Footer() {
     <footer
       ref={rootRef}
       id="contact"
-      className="relative w-full overflow-x-clip bg-white"
+      className="relative w-full overflow-x-clip bg-background"
       aria-label="Footer"
     >
       <div className="mx-auto w-full max-w-[1920px] px-4 pt-8 pb-4 sm:px-5 sm:pt-10 md:pt-14 md:pb-5">
-        <div className="flex flex-col gap-4 border border-solid border-[#1e1e1e] p-3 sm:gap-5 sm:p-5">
+        <div className="flex flex-col gap-4 border border-solid border-ink p-3 sm:gap-5 sm:p-5">
           <Link
             href="/contact"
             className="group inline-flex max-w-full items-end gap-2 p-3 sm:gap-4 sm:p-5 md:gap-5"
           >
-            <p className="min-w-0 font-[family-name:var(--font-vina-sans)] text-[clamp(36px,11vw,280px)] leading-[0.95] text-[#252525] sm:leading-[0.85]">
+            <p className="min-w-0 font-[family-name:var(--font-vina-sans)] text-[clamp(36px,11vw,280px)] leading-[0.95] text-foreground sm:leading-[0.85]">
               <span className="inline-block overflow-hidden align-bottom py-1">
                 <span data-footer-line className="block">
                   START A
                 </span>
               </span>{" "}
-              <span className="inline-block overflow-hidden align-bottom py-1 text-[#ff6228]">
+              <span className="inline-block overflow-hidden align-bottom py-1 text-accent">
                 <span data-footer-line className="block">
                   PROJECT.
                 </span>
@@ -156,16 +156,17 @@ export function Footer() {
             </span>
           </Link>
 
+          {/* Figma footer: brand 600 · nav/social 588 · stay connected 651 */}
           <div className="flex flex-col xl:flex-row">
             <div
               data-footer-brand
-              className="flex min-h-[260px] w-full shrink-0 flex-col justify-center bg-[#ff6228] p-4 sm:min-h-[320px] sm:p-5 xl:min-h-[400px] xl:w-[600px]"
+              className="flex min-h-[260px] w-full flex-col justify-center bg-accent p-4 sm:min-h-[320px] sm:p-5 xl:min-h-[400px] xl:min-w-0 xl:flex-[600] xl:basis-0 xl:max-w-[600px]"
             >
               <div
                 data-footer-brand-text
                 className="mx-auto flex w-full max-w-[564px] flex-1 flex-col justify-between gap-10 py-2 sm:gap-12 xl:min-h-[320px] xl:gap-16"
               >
-                <p className="font-[family-name:var(--font-vina-sans)] text-[clamp(48px,10vw,120px)] leading-[0.95] text-[#f7f6f2]">
+                <p className="font-[family-name:var(--font-vina-sans)] text-[clamp(48px,10vw,120px)] leading-[0.95] text-cream">
                   MaSum AHMED.
                 </p>
                 <div className="flex items-center justify-center gap-6 sm:gap-10">
@@ -186,11 +187,11 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="flex min-w-0 flex-1 flex-col">
-              <div className="flex flex-col lg:flex-row">
-                <div className="grid min-w-0 grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-1">
+            <div className="flex min-w-0 flex-1 flex-col xl:flex-[1239] xl:basis-0">
+              <div className="flex w-full flex-col items-stretch lg:flex-row">
+                <div className="flex w-full min-w-0 flex-col sm:flex-row lg:flex-[588] lg:basis-0">
                   <nav
-                    className="flex min-w-0 flex-col sm:border-r-[0.5px] sm:border-solid sm:border-[#1e1e1e] lg:flex-1"
+                    className="flex w-full min-w-0 flex-1 flex-col sm:border-r-[0.5px] sm:border-solid sm:border-ink"
                     aria-label="Footer navigation"
                   >
                     {NAV_LINKS.map((link, index) => (
@@ -198,21 +199,21 @@ export function Footer() {
                         key={link.label}
                         href={link.href}
                         data-footer-link
-                        className={`group flex min-h-[52px] items-center justify-between px-3 py-2.5 text-[#1e1e1e] transition-colors hover:bg-black/5 sm:min-h-[66px] sm:px-4 ${
+                        className={`group flex w-full flex-1 items-center justify-between px-4 py-2.5 text-ink transition-colors hover:bg-soft ${
                           index === 0
-                            ? "border-y-[0.5px] border-solid border-[#1e1e1e]"
-                            : "border-b-[0.5px] border-solid border-[#1e1e1e]"
+                            ? "border-y-[0.5px] border-solid border-ink"
+                            : "border-b-[0.5px] border-solid border-ink"
                         }`}
                       >
-                        <span className="font-[family-name:var(--font-gugi)] text-[15px] leading-none sm:text-[18px]">
+                        <span className="font-[family-name:var(--font-gugi)] text-[15px] leading-none whitespace-nowrap sm:text-[18px]">
                           {link.label}
                         </span>
-                        <CornerArrow src="/footer/arrow-black.svg" size={20} />
+                        <CornerArrow src="/footer/arrow-black.svg" size={24} />
                       </a>
                     ))}
                   </nav>
 
-                  <div className="flex min-w-0 flex-col justify-between border-x-0 border-y-[0.5px] border-solid border-[#1e1e1e] sm:border-[0.5px] lg:flex-1">
+                  <div className="flex w-full min-w-0 flex-1 flex-col justify-between border-x-0 border-y-[0.5px] border-solid border-ink sm:border-[0.5px]">
                     {SOCIAL_LINKS.map((link) => (
                       <a
                         key={link.label}
@@ -220,33 +221,33 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                         data-footer-social
-                        className="group flex min-h-[44px] items-center justify-between px-3 py-2 text-[#1e1e1e] transition-colors hover:bg-black/5 sm:min-h-[43px] sm:px-4 sm:py-2.5"
+                        className="group flex w-full items-center justify-between px-4 py-2.5 text-ink transition-colors hover:bg-soft"
                       >
-                        <span className="font-[family-name:var(--font-gugi)] text-[15px] leading-none sm:text-[18px]">
+                        <span className="font-[family-name:var(--font-gugi)] text-[15px] leading-none whitespace-nowrap sm:text-[18px]">
                           {link.label}
                         </span>
-                        <CornerArrow src="/footer/arrow-orange.svg" size={20} />
+                        <CornerArrow src="/footer/arrow-orange.svg" size={24} />
                       </a>
                     ))}
                   </div>
                 </div>
 
-                <div className="flex min-w-0 flex-1 flex-col lg:max-w-[651px]">
-                  <div className="flex items-center justify-center overflow-hidden border-y-[0.5px] border-solid border-[#1e1e1e] px-2 py-3 sm:py-2.5 lg:border-r-[0.5px]">
-                    <p className="max-w-full text-center font-[family-name:var(--font-gugi)] text-[clamp(20px,4.2vw,70px)] leading-[1.05] break-words text-[#ff6228]">
+                <div className="flex min-w-0 flex-col lg:flex-[651] lg:basis-0">
+                  <div className="flex items-center justify-center overflow-hidden border-y-[0.5px] border-solid border-ink px-2 py-2.5 lg:border-r-[0.5px]">
+                    <p className="max-w-full text-center font-[family-name:var(--font-gugi)] text-[clamp(20px,4.2vw,70px)] leading-[1.05] break-words text-accent">
                       STAY CONNECTED
                     </p>
                   </div>
-                  <div className="flex flex-1 flex-col justify-center gap-2 border-solid border-[#1e1e1e] px-3 py-4 font-[family-name:var(--font-gugi)] text-[#1e1e1e] sm:px-2.5 lg:border-r-[0.5px]">
-                    <p className="text-[18px] leading-normal sm:text-[20px]">
+                  <div className="flex flex-1 flex-col justify-center gap-2.5 border-solid border-ink px-2.5 py-4 font-[family-name:var(--font-gugi)] text-ink lg:border-r-[0.5px]">
+                    <p className="w-full text-[18px] leading-normal sm:text-[20px]">
                       Newsletter
                     </p>
-                    <p className="text-[13px] leading-relaxed text-pretty sm:text-[14px] sm:leading-normal">
+                    <p className="w-full text-[13px] leading-relaxed text-pretty sm:text-[14px] sm:leading-normal sm:text-justify">
                       Subscribe to our newsletter to get more insights.
                     </p>
                   </div>
                   <form
-                    className="flex flex-col gap-3 border-y-[0.5px] border-solid border-[#1e1e1e] p-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3 lg:border-r-[0.5px]"
+                    className="flex flex-col gap-3 border-y-[0.5px] border-solid border-ink p-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3 lg:border-r-[0.5px]"
                     onSubmit={(event) => event.preventDefault()}
                   >
                     <label className="sr-only" htmlFor="footer-email">
@@ -257,12 +258,12 @@ export function Footer() {
                       type="email"
                       name="email"
                       placeholder="Your Email"
-                      className="min-w-0 flex-1 border border-[#1e1e1e]/20 bg-transparent px-3 py-2.5 font-[family-name:var(--font-gugi)] text-[14px] leading-normal text-[#1e1e1e] outline-none placeholder:text-[rgba(30,30,30,0.5)] sm:border-0 sm:px-0 sm:py-0"
+                      className="min-w-0 flex-1 border border-ink/20 bg-transparent px-3 py-2.5 font-[family-name:var(--font-gugi)] text-[14px] leading-normal text-ink outline-none placeholder:text-muted sm:border-0 sm:px-0 sm:py-0"
                     />
                     <Magnetic>
                       <button
                         type="submit"
-                        className="shrink-0 bg-[#1e1e1e] px-4 py-2.5 font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-[#f7f6f2] transition-opacity hover:opacity-90 sm:text-[18px]"
+                        className="shrink-0 bg-strong px-4 py-2.5 font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-cream transition-opacity hover:opacity-90 sm:text-[18px]"
                       >
                         SUBSCRIBE
                       </button>
@@ -273,7 +274,7 @@ export function Footer() {
 
               <div
                 data-footer-email
-                className="flex flex-col gap-2 border-b-[0.5px] border-solid border-[#1e1e1e] p-3 text-[#1e1e1e] sm:gap-2.5 sm:p-4 lg:border-r-[0.5px]"
+                className="flex flex-col gap-2 border-b-[0.5px] border-solid border-ink p-3 text-ink sm:gap-2.5 sm:p-4 lg:border-r-[0.5px]"
               >
                 <p className="font-[family-name:var(--font-vina-sans)] text-[clamp(24px,5vw,40px)] leading-none">
                   Reach Out

@@ -26,7 +26,7 @@ const SERVICES = [
     letter: "W",
     title: "Web Development",
     bg: "/services/bg-web.jpg",
-    overlay: "bg-[#ff6228]",
+    overlay: "bg-accent",
   },
 ] as const;
 
@@ -37,7 +37,7 @@ function MarqueeItem({
   label: string;
   tone: "orange" | "black";
 }) {
-  const color = tone === "orange" ? "text-[#ff6228]" : "text-[#252525]";
+  const color = tone === "orange" ? "text-accent" : "text-foreground";
   const star =
     tone === "orange" ? "/services/star-orange.svg" : "/services/star-black.svg";
 
@@ -132,7 +132,7 @@ export function Services() {
     <section
       ref={rootRef}
       id="services"
-      className="relative w-full overflow-hidden bg-white"
+      className="relative w-full overflow-hidden bg-background"
       aria-label="Other services"
     >
       <div className="mx-auto w-full max-w-[1920px] pt-12 pb-8 sm:pt-16 md:pt-[100px] md:pb-10">
@@ -144,7 +144,7 @@ export function Services() {
           </div>
         </div>
 
-        <div className="mx-4 rounded border border-solid border-[#1e1e1e] p-3 sm:mx-6 sm:p-5 md:mx-10 md:p-[30px]">
+        <div className="mx-4 rounded border border-solid border-ink p-3 sm:mx-6 sm:p-5 md:mx-10 md:p-[30px]">
           <div
             data-service-grid
             className="flex flex-col gap-3 sm:gap-4 md:flex-row"
@@ -172,7 +172,7 @@ export function Services() {
                   </div>
                   <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/25 group-focus-within:bg-black/25" />
                 </div>
-                <div className="relative z-20 flex flex-col items-center gap-2 text-[#f7f6f2] sm:gap-2.5">
+                <div className="relative z-20 flex flex-col items-center gap-2 text-cream sm:gap-2.5">
                   <p
                     data-service-letter
                     className="w-full text-center font-[family-name:var(--font-gugi)] text-[clamp(72px,18vw,200px)] leading-none transition-transform duration-500 ease-out group-hover:-translate-y-2"
@@ -186,7 +186,7 @@ export function Services() {
                   {/* Figma 83:443 — I WANT TO TAKE THIS SERVICE (below title on hover) */}
                   <a
                     href="/contact"
-                    className="mt-2 inline-flex translate-y-2 scale-[0.96] items-center justify-center gap-2.5 bg-[#1e1e1e] px-5 py-6 text-[#ff7340] opacity-0 transition-[transform,opacity] duration-400 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100"
+                    className="mt-2 inline-flex translate-y-2 scale-[0.96] items-center justify-center gap-2.5 bg-strong px-5 py-6 text-accent-bright opacity-0 transition-[transform,opacity] duration-400 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100"
                   >
                     <span className="font-[family-name:var(--font-vina-sans)] text-[clamp(16px,2vw,24px)] leading-none whitespace-nowrap">
                       I WANT TO TAKE THIS SERVICE

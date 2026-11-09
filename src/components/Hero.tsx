@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { useGsapContext } from "@/hooks/useGsapContext";
 import { useMenu } from "@/components/providers/MenuProvider";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,8 +53,8 @@ function HeroThumbsMarquee({
           data-cursor="expand"
           className={
             variant === "mobile"
-              ? "group w-[min(220px,70vw)] shrink-0 bg-white/20 p-2 backdrop-blur-sm"
-              : "group w-[clamp(200px,18.75vw,360px)] shrink-0 bg-white/10 p-2.5"
+              ? "group w-[min(220px,70vw)] shrink-0 bg-background/20 p-2 backdrop-blur-sm"
+              : "group w-[clamp(200px,18.75vw,360px)] shrink-0 bg-background/10 p-2.5"
           }
         >
           <div
@@ -173,7 +174,7 @@ export function Hero() {
   return (
     <section
       ref={rootRef}
-      className="relative w-full overflow-hidden bg-white"
+      className="relative w-full overflow-hidden bg-background"
       aria-label="Hero"
     >
       <div className="relative mx-auto w-full max-w-[1920px]">
@@ -200,31 +201,34 @@ export function Hero() {
                 sizes="80px"
               />
             </div>
-            <button
-              type="button"
-              data-hero-nav
-              onClick={openMenu}
-              className="flex items-center gap-2 text-[#252525] transition-transform duration-300 hover:-translate-y-0.5"
-              aria-label="Open menu"
-            >
-              <span className="flex w-10 flex-col gap-1.5 p-1">
-                <span className="h-1.5 w-full bg-[#1e1e1e]" />
-                <span className="h-1.5 w-full bg-[#1e1e1e]" />
-                <span className="h-1.5 w-full bg-[#1e1e1e]" />
-              </span>
-              <span className="font-[family-name:var(--font-vina-sans)] text-[28px] leading-none sm:text-[32px]">
-                Menu
-              </span>
-            </button>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <ThemeToggle />
+              <button
+                type="button"
+                data-hero-nav
+                onClick={openMenu}
+                className="flex items-center gap-2 text-foreground transition-transform duration-300 hover:-translate-y-0.5"
+                aria-label="Open menu"
+              >
+                <span className="flex w-10 flex-col gap-1.5 p-1">
+                  <span className="h-1.5 w-full bg-ink" />
+                  <span className="h-1.5 w-full bg-ink" />
+                  <span className="h-1.5 w-full bg-ink" />
+                </span>
+                <span className="font-[family-name:var(--font-vina-sans)] text-[28px] leading-none sm:text-[32px]">
+                  Menu
+                </span>
+              </button>
+            </div>
           </header>
 
           <div className="relative z-10 mt-auto flex flex-col gap-8 px-6 pb-6 pt-24 sm:px-8 sm:pb-8">
             <div
               data-hero-copy-wrap
-              className="max-w-xl rounded-sm bg-white/80 p-5 backdrop-blur-sm sm:p-6"
+              className="max-w-xl rounded-sm bg-background/80 p-5 backdrop-blur-sm sm:p-6"
             >
               <div data-hero-copy className="flex flex-col gap-4">
-                <h1 className="font-[family-name:var(--font-vina-sans)] text-[clamp(36px,10vw,64px)] leading-none text-[#252525]">
+                <h1 className="font-[family-name:var(--font-vina-sans)] text-[clamp(36px,10vw,64px)] leading-none text-foreground">
                   <span className="block overflow-hidden">
                     <span data-hero-line className="block">
                       Turning Ideas Into
@@ -233,7 +237,7 @@ export function Hero() {
                   <span className="block overflow-hidden">
                     <span
                       data-hero-line
-                      className="block text-[#f36b32]"
+                      className="block text-accent-text"
                     >
                       Digital Experiences.
                     </span>
@@ -241,7 +245,7 @@ export function Hero() {
                 </h1>
                 <p
                   data-hero-desc
-                  className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-black sm:text-[16px]"
+                  className="font-[family-name:var(--font-gugi)] text-[14px] leading-relaxed text-foreground sm:text-[16px]"
                 >
                   I transform complex ideas into intuitive, visually compelling
                   digital experiences that balance creativity, usability, and
@@ -252,7 +256,7 @@ export function Hero() {
                     <a
                       href="/contact"
                       data-hero-cta
-                      className="group inline-flex w-full items-center justify-between gap-2.5 bg-[#ff6228] px-4 py-3 text-[#f7f6f2] sm:w-auto sm:justify-start"
+                      className="group inline-flex w-full items-center justify-between gap-2.5 bg-accent px-4 py-3 text-cream sm:w-auto sm:justify-start"
                     >
                       <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-pre transition-transform duration-300 group-hover:translate-x-0.5 sm:text-[18px]">
                         START  A PROJECT
@@ -271,9 +275,9 @@ export function Hero() {
                     <a
                       href="/projects"
                       data-hero-cta
-                      className="group inline-flex w-full items-center justify-between gap-2 bg-[#252525] px-4 py-3 sm:w-auto sm:justify-start"
+                      className="group inline-flex w-full items-center justify-between gap-2 bg-strong px-4 py-3 sm:w-auto sm:justify-start"
                     >
-                      <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-[#ff6228] transition-transform duration-300 group-hover:translate-x-0.5 sm:text-[18px]">
+                      <span className="font-[family-name:var(--font-vina-sans)] text-[16px] leading-none whitespace-nowrap text-accent transition-transform duration-300 group-hover:translate-x-0.5 sm:text-[18px]">
                         SEE ALL PROJECTS
                       </span>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -316,22 +320,25 @@ export function Hero() {
               />
             </div>
 
-            <button
-              type="button"
-              data-hero-nav
-              onClick={openMenu}
-              className="flex items-center gap-2 text-[#252525] transition-transform duration-300 hover:-translate-y-0.5"
-              aria-label="Open menu"
-            >
-              <span className="flex w-[clamp(40px,3.125vw,60px)] flex-col gap-2 p-1">
-                <span className="h-2 w-full bg-[#1e1e1e]" />
-                <span className="h-2 w-full bg-[#1e1e1e]" />
-                <span className="h-2 w-full bg-[#1e1e1e]" />
-              </span>
-              <span className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,2.08vw,40px)] leading-none">
-                Menu
-              </span>
-            </button>
+            <div className="flex items-center gap-3">
+              <ThemeToggle className="bg-background/70 backdrop-blur-sm" />
+              <button
+                type="button"
+                data-hero-nav
+                onClick={openMenu}
+                className="flex items-center gap-2 text-foreground transition-transform duration-300 hover:-translate-y-0.5"
+                aria-label="Open menu"
+              >
+                <span className="flex w-[clamp(40px,3.125vw,60px)] flex-col gap-2 p-1">
+                  <span className="h-2 w-full bg-ink" />
+                  <span className="h-2 w-full bg-ink" />
+                  <span className="h-2 w-full bg-ink" />
+                </span>
+                <span className="font-[family-name:var(--font-vina-sans)] text-[clamp(28px,2.08vw,40px)] leading-none">
+                  Menu
+                </span>
+              </button>
+            </div>
           </header>
 
           <div
@@ -339,21 +346,21 @@ export function Hero() {
             className="absolute top-[24.3%] left-[2.083%] z-10 flex w-[min(635px,33vw)] flex-col gap-6"
           >
             <div data-hero-copy className="flex flex-col gap-5">
-              <h1 className="font-[family-name:var(--font-vina-sans)] text-[clamp(40px,4.43vw,85px)] leading-none text-[#252525]">
+              <h1 className="font-[family-name:var(--font-vina-sans)] text-[clamp(40px,4.43vw,85px)] leading-none text-foreground">
                 <span className="block overflow-hidden">
                   <span data-hero-line className="block">
                     Turning Ideas Into
                   </span>
                 </span>
                 <span className="block overflow-hidden">
-                  <span data-hero-line className="block text-[#f36b32]">
+                  <span data-hero-line className="block text-accent-text">
                     Digital Experiences.
                   </span>
                 </span>
               </h1>
               <p
                 data-hero-desc
-                className="font-[family-name:var(--font-gugi)] text-justify text-[clamp(14px,0.94vw,18px)] leading-normal text-black"
+                className="font-[family-name:var(--font-gugi)] text-justify text-[clamp(14px,0.94vw,18px)] leading-normal text-foreground"
               >
                 I transform complex ideas into intuitive, visually compelling
                 digital experiences that balance creativity, usability, and
@@ -365,7 +372,7 @@ export function Hero() {
               <a
                 href="/contact"
                 data-hero-cta
-                className="group inline-flex w-fit items-center gap-2.5 bg-[#ff6228] p-4 text-[#f7f6f2]"
+                className="group inline-flex w-fit items-center gap-2.5 bg-accent p-4 text-cream"
               >
                 <span className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-none whitespace-pre transition-transform duration-300 group-hover:translate-x-0.5">
                   START  A PROJECT
@@ -384,7 +391,7 @@ export function Hero() {
 
           <aside
             data-hero-aside
-            className="absolute top-[26.95%] right-[2.083%] z-10 w-[min(339px,17.66vw)] bg-white/10 p-2.5"
+            className="absolute top-[26.95%] right-[2.083%] z-10 w-[min(339px,17.66vw)] bg-background/10 p-2.5"
           >
             <div className="flex flex-col gap-2.5">
               <div className="h-[172px] w-full bg-black/20" />
@@ -392,9 +399,9 @@ export function Hero() {
                 <a
                   href="/projects"
                   data-hero-cta
-                  className="group flex items-center justify-between bg-[#252525] p-4"
+                  className="group flex items-center justify-between bg-strong p-4"
                 >
-                  <span className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-none whitespace-nowrap text-[#ff6228] transition-transform duration-300 group-hover:translate-x-0.5">
+                  <span className="font-[family-name:var(--font-vina-sans)] text-[20px] leading-none whitespace-nowrap text-accent transition-transform duration-300 group-hover:translate-x-0.5">
                     SEE ALL PROJECTS
                   </span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}

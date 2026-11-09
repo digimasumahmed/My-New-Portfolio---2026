@@ -4,7 +4,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { useMenu } from "@/components/providers/MenuProvider";
 import { prefersReducedMotion } from "@/lib/motion";
@@ -37,7 +37,12 @@ export function SiteMenu() {
   const panelRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLButtonElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-  const wasOpenRef = useRef(false);
+  // Mount only after the first open so the menu never paints on initial load.
+  const [shouldRender, setShouldRender] = useState(false);
+
+  if (isOpen && !shouldRender) {
+    setShouldRender(true);
+  }
 
   useEffect(() => {
     if (!isOpen) return;
@@ -58,6 +63,8 @@ export function SiteMenu() {
   }, [pathname, closeMenu]);
 
   useLayoutEffect(() => {
+    if (!shouldRender) return;
+
     const root = rootRef.current;
     const panel = panelRef.current;
     const backdrop = backdropRef.current;
@@ -69,7 +76,6 @@ export function SiteMenu() {
     const closeBtn = root.querySelector<HTMLElement>("[data-menu-close]");
     const reach = root.querySelector<HTMLElement>("[data-menu-reach]");
     const reduced = prefersReducedMotion();
-    const wasOpen = wasOpenRef.current;
 
     gsap.killTweensOf([
       root,
@@ -82,16 +88,7 @@ export function SiteMenu() {
       reach,
     ]);
 
-    // Initial hidden state
-    if (!isOpen && !wasOpen) {
-      gsap.set(root, { autoAlpha: 0, pointerEvents: "none" });
-      gsap.set(panel, { xPercent: 110 });
-      gsap.set(backdrop, { autoAlpha: 0 });
-      return;
-    }
-
     if (isOpen) {
-      wasOpenRef.current = true;
       gsap.set(root, { autoAlpha: 1, pointerEvents: "auto" });
 
       if (reduced) {
@@ -144,12 +141,10 @@ export function SiteMenu() {
       return;
     }
 
-    // Closing
-    wasOpenRef.current = false;
-
     if (reduced) {
       gsap.set(root, { autoAlpha: 0, pointerEvents: "none" });
       gsap.set(panel, { xPercent: 110 });
+      setShouldRender(false);
       return;
     }
 
@@ -157,6 +152,7 @@ export function SiteMenu() {
       defaults: { ease: "power3.in" },
       onComplete: () => {
         gsap.set(root, { autoAlpha: 0, pointerEvents: "none" });
+        setShouldRender(false);
       },
     });
 
@@ -173,12 +169,14 @@ export function SiteMenu() {
       )
       .to(panel, { xPercent: 110, duration: 0.48, ease: "power4.in" }, 0.04)
       .to(backdrop, { autoAlpha: 0, duration: 0.28 }, 0.12);
-  }, [isOpen]);
+  }, [isOpen, shouldRender]);
+
+  if (!shouldRender) return null;
 
   return (
     <div
       ref={rootRef}
-      className="fixed inset-0 z-[100]"
+      className="invisible fixed inset-0 z-[100] opacity-0"
       aria-hidden={!isOpen}
     >
       <button
@@ -194,7 +192,7 @@ export function SiteMenu() {
         role="dialog"
         aria-modal="true"
         aria-label="Site menu"
-        className="absolute inset-0 flex h-[100dvh] w-full overflow-hidden bg-white will-change-transform"
+        className="absolute inset-0 flex h-[100dvh] w-full overflow-hidden bg-background will-change-transform"
       >
         <div
           ref={imageRef}
@@ -206,7 +204,6 @@ export function SiteMenu() {
             fill
             className="object-cover"
             sizes="52vw"
-            priority
           />
         </div>
 
@@ -225,8 +222,8 @@ export function SiteMenu() {
                       href={link.href}
                       data-menu-link
                       onClick={closeMenu}
-                      className={`font-[family-name:var(--font-vina-sans)] text-[clamp(28px,min(8.5vw,9.5dvh),96px)] leading-[0.95] transition-colors duration-300 hover:text-[#ff7340] ${
-                        active ? "text-[#ff7340]" : "text-[#1e1e1e]"
+                      className={`font-[family-name:var(--font-vina-sans)] text-[clamp(28px,min(8.5vw,9.5dvh),96px)] leading-[0.95] transition-colors duration-300 hover:text-accent-bright ${
+                        active ? "text-accent-bright" : "text-ink"
                       }`}
                     >
                       {link.label}
@@ -240,7 +237,7 @@ export function SiteMenu() {
                 data-menu-close
                 onClick={closeMenu}
                 aria-label="Close menu"
-                className="flex size-10 shrink-0 items-center justify-center border border-solid border-[#ff7340] p-2 transition-transform duration-300 hover:scale-105 sm:size-[50px]"
+                className="flex size-10 shrink-0 items-center justify-center border border-solid border-accent-bright p-2 transition-transform duration-300 hover:scale-105 sm:size-[50px]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -255,7 +252,7 @@ export function SiteMenu() {
           </div>
 
           <div className="flex w-full max-w-[420px] shrink-0 flex-col">
-            <div className="flex flex-col border border-solid border-[#1e1e1e]">
+            <div className="flex flex-col border border-solid border-ink">
               {SOCIAL_LINKS.map((link) => (
                 <a
                   key={link.label}
@@ -263,7 +260,7 @@ export function SiteMenu() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-menu-social
-                  className="group flex items-center justify-between px-3 py-1.5 text-[#1e1e1e] transition-colors hover:bg-black/[0.03] sm:px-4 sm:py-2.5"
+                  className="group flex items-center justify-between px-3 py-1.5 text-ink transition-colors hover:bg-soft sm:px-4 sm:py-2.5"
                 >
                   <span className="font-[family-name:var(--font-gugi)] text-[13px] leading-none sm:text-[16px] lg:text-[18px]">
                     {link.label}
@@ -286,7 +283,7 @@ export function SiteMenu() {
 
             <div
               data-menu-reach
-              className="flex flex-col gap-1.5 border border-t-0 border-solid border-[#1e1e1e] p-3 text-[#1e1e1e] sm:gap-2.5 sm:p-4"
+              className="flex flex-col gap-1.5 border border-t-0 border-solid border-ink p-3 text-ink sm:gap-2.5 sm:p-4"
             >
               <p className="font-[family-name:var(--font-vina-sans)] text-[18px] leading-none sm:text-[22px] lg:text-[24px]">
                 Reach Out
